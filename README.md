@@ -47,7 +47,7 @@ aws configure
 The project follows a multi-module Maven structure. To build all modules run this from the parent directory:
 
 ```commandline
-mvn clean package install 
+mvn clean package install -DWEATHER_API_KEY=<your_api_key_here>
 ```
 
 This will build all modules in the correct order:

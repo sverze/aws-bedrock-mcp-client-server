@@ -2,10 +2,7 @@ package co.verze.genai.mcpclient.configuration;
 
 import java.io.File;
 import java.time.Duration;
-import java.util.function.Function;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import io.modelcontextprotocol.spec.McpSchema;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,8 +17,6 @@ import io.modelcontextprotocol.client.transport.ServerParameters;
 import io.modelcontextprotocol.client.transport.StdioClientTransport;
 import io.modelcontextprotocol.spec.ClientMcpTransport;
 import io.modelcontextprotocol.spec.McpSchema.ClientCapabilities;
-import reactor.core.CoreSubscriber;
-import reactor.core.publisher.Mono;
 import software.amazon.awssdk.auth.credentials.DefaultCredentialsProvider;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.bedrockruntime.BedrockRuntimeClient;
@@ -65,7 +60,7 @@ public class McpClientConfiguration {
     }
 
     @Bean(name = "stdioTransport")
-    public ClientMcpTransport createStdioTransport(Environment environment) {
+    public ClientMcpTransport createStdioTransport() {
         logger.info("Creating StdioClientTransport");
 
         String mcpServerFilePattern = "aws-bedrock-mcp-server.*.jar";

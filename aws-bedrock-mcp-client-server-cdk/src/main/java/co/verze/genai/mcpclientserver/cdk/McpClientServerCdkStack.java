@@ -53,7 +53,7 @@ public class McpClientServerCdkStack extends Stack {
         Function mcpClientFunction = Function.Builder.create(this, "McpClientFunction")
                 .runtime(Runtime.JAVA_21)
                 .code(Code.fromAsset(mcpClientAsset.getAbsolutePath())) // Directory containing the JAR files
-                .handler("co.verze.genai.mcpclient.AwsLambdaHandler::handleRequest")
+                .handler("co.verze.genai.mcpclient.AwsProxyRequestHandler::handleRequest")
                 .role(lambdaRole)
                 .memorySize(1024)
                 .timeout(Duration.seconds(30))

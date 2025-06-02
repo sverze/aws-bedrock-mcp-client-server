@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -148,7 +147,6 @@ public class  McpClientController {
 
 
     private ResponseEntity<String> query(List<Message> messages, ToolConfiguration toolConfiguration) {
-
         logger.info("Making initial bedrock request with messages '{}' and tool config '{}'", messages, toolConfiguration);
         ConverseResponse response = makeBedrockRequest(messages, toolConfiguration);
         logger.info("Initial bedrock response: {}", response);
